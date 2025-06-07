@@ -7,7 +7,7 @@ Practical examples of The Book of Rust in <https://doc.rust-lang.org/book/>
 Init a cargo package:
 
 ```shell
-cargo init
+cargo new <project_name>
 ```
 
 Check that the code compiles (is faster than building):
