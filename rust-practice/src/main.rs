@@ -1,6 +1,7 @@
 pub mod collections;
 pub mod numerical;
 
+use crate::collections::maps;
 use crate::collections::strings;
 use crate::collections::vectors;
 use crate::numerical::recursive;
@@ -20,12 +21,19 @@ fn run_fibonacci() {
 fn main() {
     println!("Running fibonacci series...");
     run_fibonacci();
+    println!();
 
     println!("Fun with collections: vectors");
     vectors::play_with_vectors();
+    println!();
 
     println!("Fun with collections: strings");
     strings::fun_with_strings();
+    println!();
+
+    println!("Fun with collections: hash maps");
+    maps::fun_with_hash_maps();
+    println!();
 
     println!("End of main")
 }
