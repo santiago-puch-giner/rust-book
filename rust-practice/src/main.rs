@@ -1,6 +1,6 @@
 pub mod numerical;
 
-pub use crate::numerical::recursive::fibonacci;
+pub use crate::numerical::fibonacci;
 
 fn main() {
     println!("Hello, world!");
