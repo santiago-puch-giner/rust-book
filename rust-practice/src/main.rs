@@ -1,19 +1,20 @@
 pub mod collections;
 pub mod numerical;
 
-pub use crate::collections::vectors;
-pub use crate::numerical::fibonacci;
+use crate::collections::strings;
+use crate::collections::vectors;
+use crate::numerical::recursive;
 
 fn run_fibonacci() {
     println!("Hello, world!");
 
-    println!("{}", fibonacci(0));
-    println!("{}", fibonacci(1));
-    println!("{}", fibonacci(2));
-    println!("{}", fibonacci(3));
-    println!("{}", fibonacci(4));
-    println!("{}", fibonacci(5));
-    println!("{}", fibonacci(6));
+    println!("{}", recursive::fibonacci(0));
+    println!("{}", recursive::fibonacci(1));
+    println!("{}", recursive::fibonacci(2));
+    println!("{}", recursive::fibonacci(3));
+    println!("{}", recursive::fibonacci(4));
+    println!("{}", recursive::fibonacci(5));
+    println!("{}", recursive::fibonacci(6));
 }
 
 fn main() {
@@ -22,6 +23,9 @@ fn main() {
 
     println!("Fun with collections: vectors");
     vectors::play_with_vectors();
+
+    println!("Fun with collections: strings");
+    strings::fun_with_strings();
 
     println!("End of main")
 }
