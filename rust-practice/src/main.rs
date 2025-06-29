@@ -1,8 +1,10 @@
+pub mod collections;
 pub mod numerical;
 
+pub use crate::collections::vectors;
 pub use crate::numerical::fibonacci;
 
-fn main() {
+fn run_fibonacci() {
     println!("Hello, world!");
 
     println!("{}", fibonacci(0));
@@ -12,4 +14,14 @@ fn main() {
     println!("{}", fibonacci(4));
     println!("{}", fibonacci(5));
     println!("{}", fibonacci(6));
+}
+
+fn main() {
+    println!("Running fibonacci series...");
+    run_fibonacci();
+
+    println!("Fun with collections: vectors");
+    vectors::play_with_vectors();
+
+    println!("End of main")
 }
