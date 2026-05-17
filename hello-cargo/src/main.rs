@@ -6,7 +6,7 @@ fn main() {
 
     /* Basic variable declaration and primitive types */
     let pi: f32 = 3.14;
-    // pi = 666.666;  does not compile, all variables are immutable by default
+    // pi = 666.666; // does not compile, all variables are immutable by default
     assert!(pi * 2.0 == 6.28);
 
     let mut mutable_integer: i64 = 2;

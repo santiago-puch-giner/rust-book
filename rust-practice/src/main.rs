@@ -16,6 +16,8 @@ fn run_fibonacci() {
     println!("{}", recursive::fibonacci(4));
     println!("{}", recursive::fibonacci(5));
     println!("{}", recursive::fibonacci(6));
+    println!("{}", recursive::fibonacci(7));
+    println!("{}", recursive::fibonacci(8));
 }
 
 fn main() {
