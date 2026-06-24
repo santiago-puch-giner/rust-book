@@ -1,6 +1,8 @@
 // Structs hold multiple related values of different types (like tuples)
 // where each piece of data is named and does not have to be written / accessed in a specific order.
 
+use std::boxed;
+
 #[derive(Debug)]
 struct User {
     username: String,
@@ -24,6 +26,10 @@ impl User {
             && self.email == other.email
             && self.active == other.active
             && self.sign_in_count == other.sign_in_count
+    }
+
+    fn set_username(&mut self, username: &str) {
+        self.username = username.to_owned();
     }
 
     // Associative function
@@ -119,4 +125,13 @@ fn main() {
     // empty struct
     let empty = Empty;
     println!("{:?}", empty);
+
+    // Accessing methods through pointers. Unlike C++, no distinction between a.method() or a->method()
+    let mut boxed_user: Box<User> = Box::new(User::new(
+        "jisos".to_string(),
+        "jisos_da_great@gmail.com".to_string(),
+        Some(true),
+    ));
+    boxed_user.set_username("jisos_da_great"); // <-- here!
+    println!("{:?}", boxed_user);
 }
