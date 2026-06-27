@@ -1,3 +1,5 @@
+use crate::USState::{Alabama, Alaska};
+
 enum Message {
     Quit,                       // has no data associated with it
     Move { x: i32, y: i32 },    // has named fields, like a struct
@@ -112,4 +114,46 @@ fn main() {
     println!("{opt:?}"); // this wouldn't work if we moved the opt into s and then dropped it (no references)
 
     /* `if let` & `let...else` constructs */
+
+    // Instead of writing this
+    let config_max: Option<u8> = Some(3);
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {max}"),
+        _ => (),
+    }
+
+    // One can do
+    if let Some(max) = config_max {
+        println!("The maximum is configured to be {max}")
+    }
+
+    // And if we need to catch the "else" case, we can extend the construct with it
+    let mut count = 0;
+    let coins = [
+        Coin::Quarter(Alabama),
+        Coin::Dime,
+        Coin::Dime,
+        Coin::Nickel,
+        Coin::Quarter(Alaska),
+        Coin::Penny,
+    ];
+    for coin in coins.iter() {
+        if let Coin::Quarter(state) = coin {
+            println!("State quarter from {state:?}")
+        } else {
+            count += 1;
+        }
+    }
+    println!("Count: {count}");
+
+    // We can also use the let..else construct
+    for coin in coins.iter() {
+        let Coin::Quarter(state) = coin else {
+            continue;
+        };
+        match state {
+            USState::Alabama => println!("Catched a quarter from Alabama!"),
+            USState::Alaska => println!("Catched a quarter from Alaska!"),
+        }
+    }
 }
