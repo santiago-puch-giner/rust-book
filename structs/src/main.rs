@@ -1,5 +1,7 @@
-// Structs hold multiple related values of different types (like tuples)
-// where each piece of data is named and does not have to be written / accessed in a specific order.
+/**
+ * Structs hold multiple related values of different types (like tuples)
+ * where each piece of data is named and does not have to be written / accessed in a specific order.
+**/
 
 #[derive(Debug)]
 struct User {
@@ -10,9 +12,11 @@ struct User {
 }
 
 impl User {
-    // Functions within an implementation block are associated functions
-    // If they take a &self, they are also called methods, and called with the dot notation: instance.method()
-    // The ones that do not take a &self are usually used for constructors. The idiomatic name is `new`.
+    /**
+     * Functions within an implementation block are associated functions
+     * If they take a &self, they are also called methods, and called with the dot notation: instance.method()
+     * The ones that do not take a &self are usually used for constructors. The idiomatic name is `new`.
+     **/
 
     // Methods
     fn more_active_than(&self, other: &User) -> bool {
@@ -42,7 +46,7 @@ impl User {
     }
 }
 
-// Tuple Structs
+/** Tuple Structs **/
 #[derive(Debug)]
 struct Point(i32, i32, i32);
 
@@ -65,7 +69,7 @@ impl Color {
     }
 }
 
-// Unit-like Structs
+/** Unit-like Structs **/
 #[derive(Debug)]
 struct Empty;
 
