@@ -1,8 +1,6 @@
 // Structs hold multiple related values of different types (like tuples)
 // where each piece of data is named and does not have to be written / accessed in a specific order.
 
-use std::boxed;
-
 #[derive(Debug)]
 struct User {
     username: String,
@@ -47,12 +45,23 @@ impl User {
 // Tuple Structs
 #[derive(Debug)]
 struct Point(i32, i32, i32);
-#[derive(Debug)]
-struct Color(i32, i32, i32);
 
 impl Point {
     fn add(&self, other: &Point) -> Point {
         Point(self.0 + other.0, self.1 + other.1, self.2 + other.2)
+    }
+}
+
+#[derive(Debug)]
+struct Color(i32, i32, i32);
+
+impl Color {
+    fn add_brightness(&self, brightness: i32) -> Color {
+        Color(
+            self.0 + brightness,
+            self.1 + brightness,
+            self.2 + brightness,
+        )
     }
 }
 
@@ -121,6 +130,12 @@ fn main() {
     // let color_3 = point_1.add(&color_2);
     // let color_3 = color_1.add(&color_2);
     println!("Colors can't be summed: {:?} + {:?}", color_1, color_2);
+    let brightness = 10;
+    let color_1_brighter = color_1.add_brightness(10);
+    println!(
+        "But they can be made brighter!: {:?} + {:?} -> {:?}",
+        color_1, brightness, color_1_brighter
+    );
 
     // empty struct
     let empty = Empty;
