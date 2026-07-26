@@ -1,3 +1,4 @@
+mod lifetimes;
 use std::fmt::{Debug, Display};
 
 // Generics for structs
@@ -275,5 +276,16 @@ fn main() {
     let node_2_str = node_2.to_string_v2();
     let edge_str = edge.to_string_v2();
     let subgraph_str = format!("nodes={} {} / edges={}", node_1_str, node_2_str, edge_str);
-    print!("{subgraph_str}");
+    println!("{subgraph_str}");
+
+    // Lifetimes
+    let string_1 = "this is a long string";
+    let string_2 = "this not so much";
+    let longest_str = self::lifetimes::longest(string_1, string_2);
+    println!("{longest_str}");
+
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().unwrap();
+    let excerpt = self::lifetimes::create_excerpt_from_string(first_sentence);
+    println!("excerpt content: {}", excerpt.part);
 }
