@@ -1,10 +1,9 @@
-fn main() {
-    println!("Hello, world!");
-    println!("{}", add(5, 7));
+fn add(left: u64, right: u64) -> u64 {
+    left + right
 }
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+pub fn add_two(value: u64) -> u64 {
+    add(value, 2)
 }
 
 pub struct Guess {
@@ -21,7 +20,8 @@ impl Guess {
     }
 }
 
-// Run with `cargo test`
+// Specifies that the module (tests in this case) shouldn’t be included in the compiled result, since it is
+// part of the source code
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -39,11 +39,13 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "just to show how to ignore a test"]
     fn test_fails_on_purpose() {
         panic!("this test failes, oh no!");
     }
 
     #[test]
+    #[ignore = "this would faild so I am ignoring it"]
     fn test_with_a_wrong_assertion() {
         let result = add(3, 2);
         assert_eq!(
