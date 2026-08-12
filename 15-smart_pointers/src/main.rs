@@ -3,6 +3,7 @@ mod deref;
 mod drop;
 mod rc_pointer;
 mod refcell_pointer;
+mod weak_pointer;
 
 fn print_separator(newline: bool) {
     println!("-----------------");
@@ -35,5 +36,10 @@ fn main() {
     println!("RefCell<T>");
     print_separator(false);
     refcell_pointer::demo();
+    print_separator(true);
+
+    println!("Weak<T>");
+    print_separator(false);
+    weak_pointer::demo();
     print_separator(true);
 }
